@@ -14,7 +14,7 @@
     	"image_publisher": "Canonical",
     	"image_offer": "UbuntuServer",
     	"image_sku": "18.04-LTS",
-		"managed_image_resource_group_name": "udacity-cli-rg",
+		"managed_image_resource_group_name": "udacity-project-rg",
     	"managed_image_name": "ubuntuProjectImage",
     	"location": "Switzerland North",
     	"vm_size": "Standard_D2s_v3"
