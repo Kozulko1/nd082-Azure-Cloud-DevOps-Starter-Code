@@ -1,5 +1,6 @@
 variable "prefix" {
   description = "The prefix used for all the resources on the project."
+  default = "udacity-project"
 }
 
 variable "location" {
