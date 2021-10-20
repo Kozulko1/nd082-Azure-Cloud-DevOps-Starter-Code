@@ -17,8 +17,12 @@
 		"managed_image_resource_group_name": "udacity-project-rg",
     	"managed_image_name": "ubuntuProjectImage",
     	"location": "Switzerland North",
-    	"vm_size": "Standard_D2s_v3"
-
+    	"vm_size": "Standard_D2s_v3",
+		"azure_tags":{
+			"project": "Udacity",
+			"owner": "Kozulko",
+			"type": "Packer image"
+		}
 	}],
 	"provisioners": [{
 		"inline": [

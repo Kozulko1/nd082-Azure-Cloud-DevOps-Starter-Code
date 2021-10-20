@@ -105,4 +105,62 @@ resource "azurerm_public_ip" "main"{
     resource_group_name = azurerm_resource_group.main.name
     location = azurerm_resource_group.main.location
     allocation_method = "Static"
+
+    tags{
+        project = "Udacity"
+        owner = "Kozulko"
+        type = "public IP"
+    }
+}
+
+resource "azurerm_lb" "main"{
+    name = "${var.prefix}-lb"
+    resource_group_name = azurerm_resource_group.main.name
+    location = azurerm_resource_group.main.location
+
+    frontend_ip_configuration{
+        name = "PublicIPAddress"
+        public_ip_address_id = azurerm_public_ip.main.id
+    }
+
+    tags{
+        project = "Udacity"
+        owner = "Kozulko"
+        type = "Load Balancer"
+    }
+}
+
+resource "azurerm_lb_backend_address_pool" "main"{
+    loadbalancer_id = azurerm_lb.main.id
+    name = "${var.prefix}-lb-bap"
+
+    tags{
+        project = "Udacity"
+        owner = "Kozulko"
+        type = "LB Backend Address Pool"
+    }
+}
+
+resource "azurerm_network_interface_backend_address_pool_association" "main"{
+    network_interface_id = azurerm_network_interface.main.id
+    ip_configuration_name = "test-configuration"
+    backend_address_pool_id = azurerm_lb_backend_address_pool.main.id
+
+    tags{
+        project = "Udacity"
+        owner = "Kozulko"
+        type = "NIC BAPA"
+    }
+}
+
+resource "azurerm_availability_set" "main"{
+    name = "${var.prefix}-avls"
+    resource_group_name = azurerm_resource_group.main.name
+    location = azurerm_resource_group.main.location
+
+    tags{
+        project = "Udacity"
+        owner = "Kozulko"
+        type = "VM Availability Set"
+    }
 }

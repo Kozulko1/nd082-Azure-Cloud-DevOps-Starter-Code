@@ -1,11 +1,7 @@
 {
     "if": {
-        "allof": [
-            {
-                "field": "tags[*]",
-                "exists": "false"
-            }
-        ]
+        "value": "[less(length(field('tags')), 1)]",
+        "equals": "true"
     },
     "then": {
         "effect": "deny"
