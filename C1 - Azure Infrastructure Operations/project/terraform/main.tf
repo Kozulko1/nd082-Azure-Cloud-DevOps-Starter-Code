@@ -164,3 +164,16 @@ resource "azurerm_availability_set" "main"{
         type = "VM Availability Set"
     }
 }
+
+data "azurerm_image" "packer"{
+    name = var.packer_image_name
+    resource_group_name = azurerm_resource_group.main.name
+}
+
+resource "azurerm_linux_virtual_machine" "main"{
+    count = var.vm_size
+    name = "${var.prefix}-vm${count.index + 1}"
+    resource_group_name = azurerm_resource_group.main.name
+    location = azurerm_resource_group.main.location
+    //Nastaviti podatke
+}
