@@ -2,7 +2,10 @@
 	"variables": {
 		"client_id": "",
 		"client_secret": "",
-		"subscription_id": ""
+		"subscription_id": "",
+		"rg_name": "packer-image-rg",
+		"owner": "Jane_Doe",
+		"location": "westeurope"
 	},
 	"builders": [{
 		"type": "azure-arm",
@@ -14,13 +17,13 @@
     	"image_publisher": "Canonical",
     	"image_offer": "UbuntuServer",
     	"image_sku": "18.04-LTS",
-		"managed_image_resource_group_name": "udacity-project-rg",
+		"managed_image_resource_group_name": "{{user `rg_name`}}",
     	"managed_image_name": "ubuntuProjectImage",
-    	"location": "Switzerland North",
+    	"location": "{{user `location`}}",
     	"vm_size": "Standard_D2s_v3",
 		"azure_tags":{
 			"project": "Udacity",
-			"owner": "Kozulko",
+			"owner": "{{user `owner`}}",
 			"type": "Packer image"
 		}
 	}],
