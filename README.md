@@ -17,7 +17,17 @@ For this project, you will write a Packer template and a Terraform template to d
 4. Install [Terraform](https://www.terraform.io/downloads.html)
 
 ### Instructions
-Once y
+First of all, you should clone this repository to your local machine.
+Make sure you are logged in to your Azure account in the Azure CLI.
+Open your terminal and move to root directory of the cloned repository.
+Run $bash getting_started.sh
+There you will specify if you would like to use default or user defined parameters.
+If you chose default, you don't need to do anything else anymore.
+If you didn't choose default, you will need to specify info for the resource group where your packer image would be deployed.
+It may take a while to build your packer image.
+Once your packer image is finished, you will need to specify info for your resources.
+
 
 ### Output
-**Your words here**
+If you followed all the steps, you should have 2 new resource groups on your Azure portal.
+One group will have a packer image resource and the other one will have a virtual network with running virtual machines.
