@@ -23,7 +23,7 @@ For this project, you will write a Packer template and a Terraform template to d
 4. Run $bash getting_started.sh
 5. There you will specify if you would like to use default or user defined parameters.
 6. If you chose default, you don't need to do anything else anymore.
-7. If you didn't choose default, you will need to specify info for the resource group where your packer image would be deployed.
+7. If you didn't choose default, you will need to specify info for the resource group where your packer image will be deployed.
 8. It may take a while to build your packer image.
 9. Once your packer image is finished, you will need to specify info for your resources.
 
