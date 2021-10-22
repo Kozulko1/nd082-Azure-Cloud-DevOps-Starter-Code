@@ -107,14 +107,13 @@ resource "azurerm_lb_backend_address_pool" "main"{
     loadbalancer_id = azurerm_lb.main.id
     name = "${var.prefix}-lb-bap"
 }
-/*
+
 resource "azurerm_network_interface_backend_address_pool_association" "main"{
     count = var.vm_size
     network_interface_id = azurerm_network_interface.main[count.index].id
     ip_configuration_name = "internal"
     backend_address_pool_id = azurerm_lb_backend_address_pool.main.id
 }
-*/
 
 resource "azurerm_availability_set" "main"{
     name = "${var.prefix}-avls"
